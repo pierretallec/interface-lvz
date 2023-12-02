@@ -1,6 +1,16 @@
-const { DataTypes } = require("sequelize");
-const { db } = require("../postgresql");
+/** @format */
 
-const Pensionnaire = db.define("Pensionnaire", {});
+const mongoose = require("mongoose");
 
-module.exports = Pensionnaire;
+const pensionnaireSchema = new mongoose.Schema(
+  {
+    nom: String,
+    espece: String,
+    age: Number,
+    apparence: String,
+    sexe: String,
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model("Pensionnaire", pensionnaireSchema);

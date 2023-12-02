@@ -1,10 +1,13 @@
+/** @format */
+
 require("dotenv").config({ path: "./.env" });
 
-const { PORT } = require("./config");
-
+const cors = require("cors");
 const express = require("express");
 
-const { db } = require("./postgresql");
+require("./mongo.js");
+
+const { PORT, APP_URL, NODE_ENV } = require("./config");
 
 const app = express();
 app.use((req, res, next) => {
@@ -23,10 +26,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/pensionnaire", require("./controllers/pensionnaire"));
+//app,use
+app.use("/pensionnaire", require("./controllers/pensionnaire.js"));
+app.use("/veternaire", require("./controllers/veterinaire.js"));
 
-app.listen(PORT, () => {
-  console.log("Server running on port " + PORT);
-});
+//registerSentryErrorHandler();
 
-(async () => await db.sync())();
+app.listen(PORT, () => console.log("Listening on port " + PORT));

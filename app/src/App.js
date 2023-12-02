@@ -9,8 +9,13 @@ function App() {
     setPensionnaires(response.data);
   };
 
+  const putPensionnaires = async () => {
+    const response = await api.put(`/pensionnaire`);
+  };
+
   useEffect(() => {
     getPensionnaires();
+    putPensionnaires();
   }, []);
 
   return (
@@ -18,8 +23,7 @@ function App() {
       <div className="flex h-screen flex-col">
         <div className="flex">
           <main className="overflow-y-scroll w-full">
-            <h1>lvz</h1>
-            {console.log(pensionnaires)}
+            <h1>lvzfrbshgdhvgbkx</h1>
           </main>
         </div>
       </div>
