@@ -1,7 +1,5 @@
 /** @format */
 
-import "isomorphic-fetch";
-
 import { apiURL } from "../config";
 
 class api {

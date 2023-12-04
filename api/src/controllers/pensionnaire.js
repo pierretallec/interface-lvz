@@ -14,12 +14,12 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log("fonction appelée");
-  const { nom } = "toutou";
   try {
-    const data = await Pensionnaire.create({ nom });
+    // const nom = req.body.nom;
+    console.log(req.body.nom);
+    //const data = await Pensionnaire.create({});
 
-    res.status(200).json({ ok: true, data });
+    // res.status(200).json({ ok: true, data });
   } catch (error) {
     console.error("Failed to insert data into MongoDB:", error);
     res.status(500).json({ error: "Failed to insert data into the database" });
